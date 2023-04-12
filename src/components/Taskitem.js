@@ -2,21 +2,34 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 function Taskitem(props) {
-    const [status, setStatus] = useState(false)
+    const primary = { color: '#909395' }
+    const secondary = { color: '#60B058' }
+    const [status, setStatus] = useState(primary)
+
     return (
-        <div className="task-item" style={props.style}>
-            <div className="task-name">
-                <span className="check">
+        <tr className="table-item" style={props.style}>
+            <td className="task-name">
+                <span>
                     {
-                        (props.check == true) ? null : (status == true) ? <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#5ead56", }} onClick={() => { setStatus(!status) }} /> : <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#959799" }} onClick={() => { setStatus(!status) }} />
+                        (props.isTask) ? <FontAwesomeIcon className='pointer' icon={faCircleCheck} style={status} onClick={() => {
+                            if (primary.color === status.color) {
+                                setStatus(secondary)
+                            }
+                            else {
+                                setStatus(primary)
+                            }
+                        }} /> : ''
                     }
                 </span>
-                {props.taskName}</div>
-            <div className="task-tags">{props.taskTags}</div>
-            <div className="hours">{props.hours}</div>
-            <div className="task-assign-name">{props.taskAssignName}</div>
-            <div className="due-date">{props.dueDate}</div>
-        </div>
+                <span>
+                    {props.taskName}
+                </span>
+            </td>
+            <td className="task-tags">{props.taskTags}</td>
+            <td className="task-hours">{props.taskHours}</td>
+            <td className="task-assign-name">{props.taskAssignName}</td>
+            <td className="task-due-date">{props.taskDueDate}</td>
+        </tr>
     )
 }
 

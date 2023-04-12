@@ -14,6 +14,7 @@
     --primary-font-size: 1rem;
     --primary-font-color: #C5C7C8;
     --primary-dark-border-color: #33383D;
+    --primary-sidebar-font-color: #959799;
 }
 
 body {
@@ -28,10 +29,20 @@ body {
 }
 
 .left-container {
-    max-width: 20%;
-    width: 100%;
+    position: absolute;
+    height: 100vh;
+    min-width: 20vw;
     background-color: var(--secondary-dark-color);
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 3rem;
+    color: var(--primary-sidebar-font-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    font-size: 1rem;
+
 }
 
 .right-container {
@@ -104,63 +115,66 @@ body {
     cursor: pointer;
 }
 
-.task-container {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
+/* All code of task table */
 
-.to-do,
-.in-progress {
-    background-color: var(--primary-dark-border-color);
-    border-radius: 5px;
-    display: grid;
-    gap: 1px;
-    padding: 2px;
-}
-
-.check {
-    cursor: pointer;
-}
-
-/* Task item css */
-.task-item {
-    display: grid;
-    grid-template-columns: minmax(auto, 3fr) repeat(4, 1fr);
-    font-size: var(--primary-font-size);
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 500;
-    background-color: var(--primary-dark-border-color);
+.task-table {
+    border-collapse: collapse;
     color: var(--primary-font-color);
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.table-item {
     overflow: hidden;
 }
 
-.task-item div {
-    padding: .9rem 0;
-    padding-left: .6rem;
+.table-item td {
+    border: 1px solid var(--primary-dark-border-color);
     background-color: var(--secondary-dark-color);
-    display: flex;
-    align-items: center;
+    padding: .9rem;
 }
 
-.task-name {
-    padding-left: 2rem !important;
+.task-name>* {
+    padding: 0 0 0 2rem !important;
+}
+
+.task-tags,
+.task-assign-name {
+    width: 15%;
+}
+
+.task-hours,
+.task-due-date {
+    width: 13%;
+}
+
+
+.empty {
+    height: 12px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.task-add-popup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    background-color: #212529;
+    border-radius: 10px;
+    border: 2px solid var(--primary-dark-border-color);
+    color: var(--primary-font-color);
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.task-date-popup {
+    font-weight: 600;
     display: flex;
     gap: 1rem;
-}
-
-.task-tags {
-    border-left: 1px solid var(--primary-dark-border-color);
-}
-
-.hours {
-    border-left: 1px solid var(--primary-dark-border-color);
-}
-
-.task-assign-name {
-    border-left: 1px solid var(--primary-dark-border-color);
-}
-
-.due-date {
-    border-left: 1px solid var(--primary-dark-border-color);
 }
