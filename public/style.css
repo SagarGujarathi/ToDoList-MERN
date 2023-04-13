@@ -33,15 +33,6 @@ body {
     height: 100vh;
     min-width: 20vw;
     background-color: var(--secondary-dark-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    gap: 3rem;
-    color: var(--primary-sidebar-font-color);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bolder;
-    font-size: 1rem;
 
 }
 
@@ -115,66 +106,18 @@ body {
     cursor: pointer;
 }
 
-/* All code of task table */
-
-.task-table {
-    border-collapse: collapse;
-    color: var(--primary-font-color);
-    font-family: 'Fira Sans', sans-serif;
+::-webkit-scrollbar {
+    width: 5px;
 }
 
-.table-item {
-    overflow: hidden;
+::-webkit-scrollbar-button {
+    background: transparent
 }
 
-.table-item td {
-    border: 1px solid var(--primary-dark-border-color);
-    background-color: var(--secondary-dark-color);
-    padding: .9rem;
+::-webkit-scrollbar-track-piece {
+    background: transparent
 }
 
-.task-name>* {
-    padding: 0 0 0 2rem !important;
-}
-
-.task-tags,
-.task-assign-name {
-    width: 15%;
-}
-
-.task-hours,
-.task-due-date {
-    width: 13%;
-}
-
-
-.empty {
-    height: 12px;
-}
-
-.pointer {
-    cursor: pointer;
-}
-
-.task-add-popup {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    gap: 1rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50vw;
-    background-color: #212529;
-    border-radius: 10px;
-    border: 2px solid var(--primary-dark-border-color);
-    color: var(--primary-font-color);
-    font-family: 'Fira Sans', sans-serif;
-}
-
-.task-date-popup {
-    font-weight: 600;
-    display: flex;
-    gap: 1rem;
+::-webkit-scrollbar-thumb {
+    background: var(--primary-dark-border-color)
 }
